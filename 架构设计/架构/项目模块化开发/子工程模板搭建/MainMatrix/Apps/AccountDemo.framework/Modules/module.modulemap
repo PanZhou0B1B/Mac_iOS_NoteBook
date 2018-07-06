@@ -1,0 +1,6 @@
+framework module AccountDemo {
+  umbrella header "AccountDemo.h"
+
+  export *
+  module * { export * }
+}

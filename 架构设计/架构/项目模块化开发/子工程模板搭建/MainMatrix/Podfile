@@ -1,0 +1,10 @@
+platform :ios, '8.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'MainMatrix' do
+pod 'WebViewJavascriptBridge', '6.0.2'
+pod 'CTMediator', '12'
+pod 'Aspects', '1.4.1'
+pod 'YTKNetwork', '2.0.3'
+end
