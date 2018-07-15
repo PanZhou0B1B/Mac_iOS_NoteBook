@@ -87,3 +87,13 @@ src/renderer/components
 1. .electron-vue/webpack.main.config.js：针对 electron 的 main 进程。这种配置是相当简单的，但确实包括一些常见的 webpack 做法。
 2. .electron-vue/webpack.renderer.config.js：针对 electron 的 renderer 进程。此配置用来处理你的 Vue 应用程序，因此它包含 vue-loader 和许多其他可在官方 vuejs-templates/webpack 样板中找到的配置。
 3. .electron-vue/webpack.web.config.js：针对为浏览器构建你的 renderer 进程的源代码。
+
+
+###### 8. 入口index.html
+
+1. 在开发过程中，你将在 src/ 目录中找到一个 index.ejs,即在此处可以更改html入口文件。
+
+	> 在产品阶段，electron-vue 使用 html-webpack-plugin 创建 index.html。
+	> * [插件的工作原理](https://www.npmjs.com/package/html-webpack-plugin):简而言之，会自动将产品阶段的资源（包括 renderer.js 和 styles.css）注入到最终压缩版的 index.html 中。
+	
+	
