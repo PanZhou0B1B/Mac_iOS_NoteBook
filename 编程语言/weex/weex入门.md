@@ -41,7 +41,10 @@
 
 	> 1. 安装项目依赖：npm install
 	> 2. `npm start`:即可在chrome上实时查看效果。（终端调试：扫描二维码，查看手机呈现效果）
+	> 4. 测试web预览：npm run dev & npm run serve 
 	> 3. 单页面调试：`weex preview src/index.vue`
+	> 5. 调试单个页面:$ weex debug your_weex.vue
+	> 6. 调试整个工程:$weex debug your/path -e App.vue
 	
 
 ## 编译&打包
@@ -67,6 +70,8 @@ $ weex run ios
 
 	> * `**.js`:iOS和Android通用版。
 	> * `**.web.js`:h5版，应用于web。
+	> * 将src目录下全部生成JSBundle文件:`weex compile src dist`
+	> * 针对某一个Vue文件生成JSBundle:`weex compile src/xxx.vue dist`
 
 
 附录：

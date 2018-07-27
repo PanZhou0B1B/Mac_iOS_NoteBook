@@ -16,6 +16,10 @@
 	> * 类型二：WXModuleKeepAliveCallback回调js n次。可以设置是否多次回调。
 	
 	
+## JS -> Naive
+
+1. js调用Module模块中的方法。
+
 
 ## 跨页面通信	（JS -> JS）
 
