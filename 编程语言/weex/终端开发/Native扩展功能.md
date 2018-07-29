@@ -1,4 +1,18 @@
 
+# 一、扩展Html5的功能
+
+1. 参考：[扩展Html5的功能](https://weex.incubator.apache.org/cn/guide/extend-web-render.html)
+
+# 二、扩展Android的功能
+
+1. 参考：[扩展Android的功能](https://weex.incubator.apache.org/cn/guide/extend-android.html)
+
+# 三、扩展iOS的功能(swift)
+
+1. 参考：[使用 swift 扩展 iOS 的功能](https://weex.incubator.apache.org/cn/guide/extend-module-using-swift.html)
+
+# 四、扩展iOS的功能（obj-c）
+
 ## JS 使用原生组件
 
 1. Weex SDK 只提供渲染，提供了一些默认的组件和能力，如果你需要一些特性但 Weex 并未提供，可以通过扩展自定义的一些插件来实现，通过 WeexSDK 加载。这些插件包括 component, module 和 handler。
@@ -14,6 +28,11 @@
 1. 使用内置module(功能模块)
 2. 内置component（UI组件）
 3. 内置handler:(每个 protocol(interface) 对应的 handler 在 app 生命周期期间只有一个实例。)
+4. 概念：
+
+	> 1. [Module](https://weex.incubator.apache.org/cn/wiki/module-introduction.html)
+	> 2. [Handler](https://weex.incubator.apache.org/cn/wiki/handler-introduction.html)
+	> 3. [Component](https://weex.incubator.apache.org/cn/wiki/component-introduction.html)
 
 ## 1. 扩展自定义module
 
@@ -28,7 +47,6 @@
 2. `` - (NSThread *)targetExecuteThread``协议方法：Module 方法默认会在UI线程中被调用，建议不要在这做太多耗时的任务。如果要在其他线程执行整个module 方法，需要实现该协议方法，这样，分发到这个module的任务会在指定的线程中运行。
 3. ``WXModuleKeepAliveCallback``回调：Module 支持返回值给 JavaScript中的回调，回调的参数可以是String或者Map, 该 block 第一个参数为回调给 JavaScript 的数据，第二参数是一个 BOOL 值，表示该回调执行完成之后是否要被清除，JavaScript 每次调用都会产生一个回调，但是对于单独一次调用，是否要在完成该调用之后清除掉回调函数 id 就由这个选项控制，如非特殊场景，建议传 NO。
 
-4. 
 
 
 ###### 3. 暴露需透传提供给JS调用的方法
