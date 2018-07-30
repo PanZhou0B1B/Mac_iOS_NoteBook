@@ -24,6 +24,7 @@
 ## 跨页面通信	（JS -> JS）
 
 ###### 1. BroadcastChannel
+###### 2. EventModule: 封装module，非跨页面
 
 ## 其它
 
