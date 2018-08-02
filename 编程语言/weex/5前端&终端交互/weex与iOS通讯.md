@@ -15,7 +15,11 @@
 	> * 类型一：WXModuleCallback回调通知js一次，便释放。用于一次结果场景。
 	> * 类型二：WXModuleKeepAliveCallback回调js n次。可以设置是否多次回调。
 	
-	
+###### 3. 其它通知类
+
+1. fireGlobalEvent等事件：具有全局性。
+
+
 ## JS -> Naive
 
 1. js调用Module模块中的方法。
