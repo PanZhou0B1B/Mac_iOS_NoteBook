@@ -4,11 +4,12 @@
 	
 2. PCH文件添加：创建`pname-Prefix.pch`命名的文件。
 
-	> * 设置：进入`Target->Build Settings:Precompile Prefix Header=YES；Prefix Header=$(SRCROOT)/$(PROJECT)/$(PROJECT)-Prefix.pch`即可。
+	> * 设置：进入`Target->Build Settings:Precompile Prefix Header=YES；`
+	> * `Prefix Header=$(SRCROOT)/$(PROJECT)/$(PROJECT)-Prefix.pch`即可。
 	> * 功能：工程内部需要引入的文件、公用宏定义等。
 	
 3. 创建相关启动文件，如UIViewController子类，UITabBarContrller子类，UINavigationController子类，或者他们的基类文件等。
-4. 启动文件设置(简单模式)：
+4. 启动文件设置(简单模式,分布式启动方式均适用)：
 
 	```
 	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -37,7 +38,13 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'DHMessageKit' do
 inhibit_all_warnings!
 use_frameworks!
-pod 'SocketRocket', '~> 0.5.1'
-#...
+pod '**', '~> 0.5.1'
+ # myself libs
+pod 'IMXExtentCpt', '~> 1.0.0'
+pod 'IMXLauncher', '~> 1.0.0'
+pod 'IMXTabBar', '~> 1.0.0'
+pod 'IMXStyleKit', '~> 1.0.0'
+
 end
 	```
+	
