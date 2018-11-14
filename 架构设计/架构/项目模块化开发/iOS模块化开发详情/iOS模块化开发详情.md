@@ -390,39 +390,7 @@
 
 ### (16) Style Kit组件
 
-#### 功能汇总
-
-1. 字体设置
-
-	> * 字体适配策略 TODO
-	> * 具体项目的字体配置可以在bizCommon中做这部分功能（一套完整的字体体系应该可以满足APP的要求)
-	> * 目前涵盖常见字体设置
-	> * 其它待完善
-	
-2. iconfont功能
-
-* **iconfont属于自定义字体。目前要求iconfont字体集个数不限**
-* **目前使用和工程名相同的iconfont字体集，如`projName.ttf`**
-	> 1. 使用（iOS）
-	> 	* 查找ttf文件，找到具体icon对应的Unicode值，如`\ue600`。
-	>	* UI控件调整fontsize，使之具有合适赋值iconfont字体的大小
-	> 	* UI控件赋值iconfont文本即可。
-	
-	> 2. 导入文件
-	> 	* 进入网站[iconfont](http://www.iconfont.cn/),搜索需要的icons，整合为同一项目中，然后下载至本地。
-	> 	* 下载文件中含有X.ttf的文件，置入主工程，即完成导入的所有icon字体图标（属于资源文件导入范畴）,Target设置。
-	> 	* 在工程项目的info.plist文件中，设置KV值：
-	
-	> 		```
-	<key>UIAppFonts</key>
-	<array>
-		<string>****.ttf</string>
-	</array>
-	>	```
-3. 色值功能
-
-	> * UIColor类别：实现RGB十六进制定义
-3. 其它
+* 参见demo示例:[IMXStyleKit](https://github.com/PanZhow/IMXStyleKit)
 
 ### (17) 扩展组件
 
