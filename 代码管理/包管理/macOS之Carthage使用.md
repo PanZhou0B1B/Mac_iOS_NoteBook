@@ -30,6 +30,12 @@
 	>
 	> 删除老版路径： /Library/Frameworks/CarthageKit.framework
 	
+2. 若出现权限错误：`Permission denied @ dir_s_mkdir - /usr/local/Frameworks`。则执行：
+
+	> 1. sudo mkdir /usr/local/Frameworks
+	> 2. sudo chown $(whoami):admin /usr/local/Frameworks
+	> 3. brew link carthage
+	
 ### 添加frameworks到项目中
 
 1. 创建Cartfile，并罗列frameworks
@@ -51,15 +57,15 @@
 
 	1. 在Mac开发中：在项目Targets的`General`tab->`Embedded Binaries`，拖拽编译好的依赖库framework导入即可。
 
-		> 编译好的库位于`Carthage/Build`路径中。
+		> 编译好的库位于`Carthage/Build`路径中。**创建的framework需要再项目目录下**
 		
 	2. 在iOS中：在项目Targets的`General`tab->`“Linked Frameworks and Libraries`，拖拽编译好的依赖库framework导入。
 
 		> 追加步骤1：在targets中点击+，选择New Run Script Phase，选择/bin/sh,添加脚本：``/usr/local/bin/carthage copy-frameworks``
 		> 
-		> 追加步骤2：在1中脚本下Input Files添加如下`$(SRCROOT)/Carthage/Build/iOS/Result.framework`语句
+		> 追加步骤2：在1中脚本下Input Files添加如下`$(SRCROOT)/Carthage/Build/iOS/****.framework`语句
 		> 
-		> 追加步骤3：在1中脚本下Output Files添加如下`$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Result.framework`语句
+		> 追加步骤3：在1中脚本下Output Files添加如下`$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/****.framework`语句
 	
 4. 可选。添加debug 文件
 
