@@ -5,6 +5,7 @@
 
 * [在主线程更新UI的若干原因](#在主线程更新UI的若干原因)
 * [沙盒路径](#沙盒路径)
+* [iOS版本兼容](#iOS版本兼容)
 
 ## <span id = "在主线程更新UI的若干原因"> 在主线程更新UI的若干原因 </span>
 
@@ -70,3 +71,74 @@ NSArray *array = @[@1, @2, @3];
     NSData *jsonData = [[NSFileManager defaultManager] contentsAtPath:jsonPath];
     NSArray *jsonDic = [NSJSONSerialization JSONObjectWithData:jsonData options:1 error:nil];
 ```
+
+
+## <span id = "iOS版本兼容"> iOS版本兼容 </span>
+
+###### 1. 直接获取系统版本
+
+```
+NSString *version = [UIDevice currentDevice].systemVersion;
+if (version.doubleValue >= 9.0) {
+    // 针对 9.0 以上的iOS系统进行处理
+} else {
+    // 针对 9.0 以下的iOS系统进行处理
+}
+```
+
+
+###### 2. 通过Foundation框架版本号:`NSFoundationVersionNumber `判断API 的兼容性
+
+```
+#define NSFoundationVersionNumber10_2_5	462.00
+#define NSFoundationVersionNumber10_2_6	462.00
+#define NSFoundationVersionNumber10_2_7	462.70
+#define NSFoundationVersionNumber10_2_8	462.70
+......
+```
+
+###### 3. 系统宏: 
+
+* `__IPHONE_OS_VERSION_MIN_REQUIRED`:即当前支持的最小系统版本。值等于`Deployment Target`。
+
+
+```
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 80000
+    //minimum deployment target is 8.0, so it’s safe to use iOS 8-only code
+    当前SDK最小支持的设备系统，即8.0，所以在iOS 8.0设备上是安全的
+
+#else
+    //you can use iOS8 APIs, but the code will need to be backwards
+    //compatible or it will crash when run on an iOS 7 device
+    你仍然可以使用iOS 8的API，但是在iOS 7的设备上可能会crash.
+#endif
+```
+
+
+* `__IPHONE_OS_VERSION_MAX_ALLOWED`:即系统版本宏可以判断当前系统版本是否是大于等于某个版本。
+
+```
+#ifdef __IPHONE_8_0
+// 系统版本大于 iOS8.0 执行
+#endif
+
+#ifdef __IPHONE_10_0
+// 系统版本大于 iOS10.0 执行
+#endif
+```
+
+
+###### 4. `@available` 运行时检查
+
+
+```
+ if (@available(iOS 11, *)) { // >= 11
+        NSLog(@"iOS 11");
+    } else if (@available(iOS 11, *)) { //>= 10
+        NSLog(@"iOS 11");
+    } else { // < 10
+        NSLog(@" < iOS 10");
+    } 
+```
+	
+
