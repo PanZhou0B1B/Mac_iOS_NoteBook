@@ -41,6 +41,14 @@
 6. 适应不同的屏幕宽高比（横向、纵向）
 7. 其中针对SafeArea，目前做了工具[IMXSafeAreaKit](https://github.com/PanZhow/IMXUIsCpt/tree/master/IMXUIsCpt/Utils/IMXSafeAreaKit):实现了safearea的获取，本地保存等定制功能。
 
+8. 使用`viewSafeAreaInsetsDidChange`,调用序列：
+
+	> * viewDidLoad
+	> * viewWillAppear
+	> * **viewSafeAreaInsetsDidChange**
+	> * viewWillLayoutSubviews
+	> * viewDidAppear
+
 #### 2. 相册访问权限变更
 
 * 即默认读权限，增强了写权限。
