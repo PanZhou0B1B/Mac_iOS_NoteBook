@@ -134,8 +134,8 @@ if (version.doubleValue >= 9.0) {
 ```
  if (@available(iOS 11, *)) { // >= 11
         NSLog(@"iOS 11");
-    } else if (@available(iOS 11, *)) { //>= 10
-        NSLog(@"iOS 11");
+    } else if (@available(iOS 10, *)) { //>= 10
+        NSLog(@"iOS 10");
     } else { // < 10
         NSLog(@" < iOS 10");
     } 
